@@ -546,11 +546,11 @@ export class IBeacon {
   /**
    * Queries the native layer to determine the current authorization in effect.
    *
-   * @returns {Promise<any>} Returns a promise which is resolved with the
+   * @returns {Promise<IBeaconPluginResult>} Returns a promise which is resolved with the
    * requested authorization status.
    */
   @Cordova({otherPromise: true})
-  static getAuthorizationStatus(): Promise<any> { return; }
+  static getAuthorizationStatus(): Promise<IBeaconPluginResult> { return; }
 
   /**
    * For iOS 8 and above only. The permission model has changed by Apple in iOS 8, making it necessary for apps to
@@ -566,7 +566,7 @@ export class IBeacon {
 
 
   /**
-   * See the docuemntation of {@code requestWhenInUseAuthorization} for further details.
+   * See the documentation of {@code requestWhenInUseAuthorization} for further details.
    *
    * @returns {Promise<void>} Returns a promise which is resolved when the native layer
    * shows the request dialog.

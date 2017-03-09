@@ -47,6 +47,18 @@ export const GoogleMapsMapTypeId = {
 };
 
 /**
+ * @private
+ */
+export const GoogleMapsMapTypeId = {
+    HYBRID: 'MAP_TYPE_HYBRID',
+    NONE: 'MAP_TYPE_NONE',
+    NORMAL: 'MAP_TYPE_NORMAL',
+    ROADMAP: 'MAP_TYPE_ROADMAP',
+    SATELLITE: 'MAP_TYPE_SATELLITE',
+    TERAIN: 'MAP_TYPE_TERRAIN'
+};
+
+/**
  * @name Google Maps
  * @description This plugin uses the native Google Maps SDK
  * @usage
@@ -81,9 +93,6 @@ export const GoogleMapsMapTypeId = {
  *
  *  let map = new GoogleMap(element);
  *
- *  // listen to MAP_READY event
- *  map.one(GoogleMapsEvent.MAP_READY).then(() => console.log('Map is ready!'));
- *
  *  // create LatLng object
  *  let ionic: GoogleMapsLatLng = new GoogleMapsLatLng(43.0741904,-89.3809802);
  *
@@ -94,8 +103,12 @@ export const GoogleMapsMapTypeId = {
  *    tilt: 30
  *  };
  *
- *  // move the map's camera to position
- *  map.moveCamera(position);
+ *  // listen to MAP_READY event
+ *  map.one(GoogleMapsEvent.MAP_READY).then(() => {
+ *    // move the map's camera to position
+ *    map.moveCamera(position); // works on iOS and Android
+ * });
+ *
  *
  *  // create new marker
  *  let markerOptions: GoogleMapsMarkerOptions = {
@@ -108,7 +121,7 @@ export const GoogleMapsMapTypeId = {
  *       marker.showInfoWindow();
  *     });
  *  }
- *
+ * });
  * }
  * ```
  */
